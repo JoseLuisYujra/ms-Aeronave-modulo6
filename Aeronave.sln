@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32819.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aeronaves.WebApi", "Aeronaves.WebApi\Aeronaves.WebApi.csproj", "{A35B9040-7AE2-4F86-8332-80C0F78F909C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared.Rabbitmq", "Shared.Rabbitmq\Shared.Rabbitmq.csproj", "{FE3A8A4C-52A5-430F-A3D1-A7FCDCB1A08F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A35B9040-7AE2-4F86-8332-80C0F78F909C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A35B9040-7AE2-4F86-8332-80C0F78F909C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A35B9040-7AE2-4F86-8332-80C0F78F909C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A35B9040-7AE2-4F86-8332-80C0F78F909C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE3A8A4C-52A5-430F-A3D1-A7FCDCB1A08F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE3A8A4C-52A5-430F-A3D1-A7FCDCB1A08F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE3A8A4C-52A5-430F-A3D1-A7FCDCB1A08F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE3A8A4C-52A5-430F-A3D1-A7FCDCB1A08F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0FA9C6B2-5755-4402-A619-48444FD7FC5D}
+	EndGlobalSection
+EndGlobal
