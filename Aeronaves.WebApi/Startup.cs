@@ -113,12 +113,12 @@ namespace Aeronaves.WebApi
             ///registrar el evento Queue del bus
             ///Para el CONSUMIDOR (Subscriber) al evento ejemplo EmailEventoQueue que esta en el bus
             ///<Sumary>            
-           /*
+           
             var eventBus = app.ApplicationServices.GetRequiredService<IRabbitEventBus>();
             //eventBus.Subscribe<EmailEventoQueue, EmailEventoManejador>();
             //eventBus.Subscribe<AeronaveAgregadaEventoQueue, AeronaveEventoManejador>();
             eventBus.Subscribe<VueloAsignadoAeronaveQueue, AeronaveEventoManejador>();
-            */
+           
 
         }
     }

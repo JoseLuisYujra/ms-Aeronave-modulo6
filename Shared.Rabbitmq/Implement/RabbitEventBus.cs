@@ -48,21 +48,6 @@ namespace Shared.Rabbitmq.Implement
 
         public void Publish<T>(T evento) where T : Evento
         {
-            /*
-            var rabbitMqHost = _configuration["RabbitMq:Host"];
-            //var rabbitMqPort = _configuration["RabbitMq:Port"];
-            var rabbitMqUserName = _configuration["RabbitMq:UserName"];
-            var rabbitMqPassword = _configuration["RabbitMq:Password"];            
-            
-            var factory = new ConnectionFactory() 
-            { HostName = rabbitMqHost,
-              UserName = rabbitMqUserName,
-              Password = rabbitMqPassword
-              //,Port = Int32.Parse(rabbitMqPort)
-            };
-            using (var connection = factory.CreateConnection())
-            */
-
             using IConnection connection = _connectionFactory.CreateConnection();            
             
             using (var channel = connection.CreateModel())
@@ -75,41 +60,7 @@ namespace Shared.Rabbitmq.Implement
             }
         }
 
-        /*
-        public Task<string> Consumer<T>(T evento) where T : Evento
-        {
-           
-            using IConnection connection = _connectionFactory.CreateConnection();           
-            using var channel = connection.CreateModel();
-            var eventName = evento.GetType().Name;
-
-            channel.QueueDeclare(eventName,
-                                 durable: false,
-                                 exclusive: false,
-                                 autoDelete: false,
-                                 arguments: null);
-
-            var consumer = new EventingBasicConsumer(channel);                        
-            consumer.Received += (sender, e) => {
-                var body = e.Body.ToArray();
-                var message = Encoding.UTF8.GetString(body);                
-            };                        
-            channel.BasicQos(0, 1, false); //para no permitir todos los mensajes
-            channel.BasicConsume(eventName, true, consumer);
-
-            BasicDeliverEventArgs ea = (BasicDeliverEventArgs)consumer.Queue.Dequeue();
-            var body = ea.Body;
-            var message = Encoding.UTF8.GetString(body.ToArray());
-            //Response.Write(message + " Received.");
-
-            return message;
-        }
-
-        */
-
-
-
-
+       
         public void Subscribe<T, TH>()
             where T : Evento
             where TH : IEventoManejador<T>

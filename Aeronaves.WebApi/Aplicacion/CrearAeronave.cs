@@ -91,9 +91,9 @@ namespace Aeronaves.WebApi.Aplicacion
                 Guid id = aeronave.AeronaveId;
 
                 /// Se publica en el bus de rabbit
-                //_eventBus.Publish(new EmailEventoQueue("jyujra@bancosol.com.bo","Creacion de Aeronave " + request.Marca , "Se Creo la Aeronave y se notifica al bus de eventos"));                
+                _eventBus.Publish(new EmailEventoQueue("jyujra@bancosol.com.bo","Creacion de Aeronave " + request.Marca , "Se Creo la Aeronave y se notifica al bus de eventos"));                
                 _eventBus.Publish(new AeronaveAgregadaEventoQueue(id, request.Marca, request.Modelo, request.NroAsientos, request.EstadoAeronave, "Se Creo la Aeronave y se notifica al bus de eventos"));
-                _eventBus.Publish(new VueloAsignadoAeronaveQueue(Guid.NewGuid(), Guid.NewGuid(),id));
+                //_eventBus.Publish(new VueloAsignadoAeronaveQueue(Guid.NewGuid(), Guid.NewGuid(),id));
 
                 foreach (var obj in request.ListaAsientos)
                 {
