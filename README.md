@@ -34,7 +34,7 @@ Configuracion relevantes para el **USO DE SHARED KERNEL (Shared.RabbitMQ)** :
   },
 
   "Services": {
-    "APIAsignarAeronave": "http://localhost:34272/api/AsignarAeronave"
+    "APIAsignarAeronave": "https://aeronaveapi.azurewebsites.net/api/AsignarAeronave"
   },
 
   "RabbitMq": {
