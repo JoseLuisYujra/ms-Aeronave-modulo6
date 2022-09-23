@@ -60,7 +60,8 @@ namespace Shared.Rabbitmq.Implement
             }
         }
 
-       
+      
+
         public void Subscribe<T, TH>()
             where T : Evento
             where TH : IEventoManejador<T>

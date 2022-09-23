@@ -77,13 +77,15 @@ namespace Aeronaves.WebApi
 
             ///<Sumary>
             ///agregando Swagger
-            ///<Sumary>
-            //services.AddSwaggerGen();
-
+            ///<Sumary>           
+            /*
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Aeronaves.webApi", Version = "v1" });
             });
+            */
+
+            services.AddSwaggerGen();
 
             //services.AddInfrastructure(Configuration);
         }
@@ -91,14 +93,14 @@ namespace Aeronaves.WebApi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+           
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Aeronaves.WebApi v1"));
-                //app.UseSwaggerUI();
             }
+            app.UseSwagger();
+            app.UseSwaggerUI(option => option.SwaggerEndpoint("/swagger/v1/swagger.json", "Aeronaves.WebApi v1"));          
+           
 
             app.UseRouting();
 
@@ -112,13 +114,12 @@ namespace Aeronaves.WebApi
             ///<Sumary>
             ///registrar el evento Queue del bus
             ///Para el CONSUMIDOR (Subscriber) al evento ejemplo EmailEventoQueue que esta en el bus
-            ///<Sumary>            
-           
+            ///<Sumary>
             var eventBus = app.ApplicationServices.GetRequiredService<IRabbitEventBus>();
             //eventBus.Subscribe<EmailEventoQueue, EmailEventoManejador>();
             //eventBus.Subscribe<AeronaveAgregadaEventoQueue, AeronaveEventoManejador>();
             eventBus.Subscribe<VueloAsignadoAeronaveQueue, AeronaveEventoManejador>();
-           
+            
 
         }
     }

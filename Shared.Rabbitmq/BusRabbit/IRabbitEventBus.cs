@@ -17,7 +17,6 @@ namespace Shared.Rabbitmq.BusRabbit
         void Publish<T>(T @evento) where T : Evento;
         void Subscribe<T, TH>() where T : Evento
                                where TH : IEventoManejador<T>;
-        //Task Consumer<T>(T @evento) where T : Evento;
-                                        
+                                              
     }
 }

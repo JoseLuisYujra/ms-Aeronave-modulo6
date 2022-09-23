@@ -31,12 +31,13 @@ namespace Aeronaves.WebApi.Controllers
             return Ok(id);
         }    
         
-        
         [HttpGet]
-        public async Task<ActionResult<List<AeronaveDto>>> GetAeronaves()
+        [Route("[action]")]
+        public async Task<ActionResult<List<AeronaveDto>>> GetAllAeronaves()
         {
             return await _mediator.Send(new Consulta.ListaAeronave());
         }
+
         
         [Route("{id:guid}")]
         [HttpGet]

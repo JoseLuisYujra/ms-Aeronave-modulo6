@@ -23,7 +23,7 @@ namespace Aeronaves.WebApi.ManejadorRabbit
         /// Clase para el CONSUMIDOR uso de RabbitMQ
         /// </summary>    
         
-        /*
+        
         //private readonly ILogger<VueloAsignadoAeronaveQueue> _log;    
         private readonly IConfiguration _configuration;
 
@@ -31,7 +31,7 @@ namespace Aeronaves.WebApi.ManejadorRabbit
         {
             _configuration = configuration;
         }
-        */
+        
         //public AeronaveEventoManejador() { }
 
 
@@ -42,8 +42,9 @@ namespace Aeronaves.WebApi.ManejadorRabbit
         public Task Handle(VueloAsignadoAeronaveQueue @evento)        
         {
 
-            var url = "http://localhost:34272/api/AsignarAeronave";            
-            //var url = _configuration["Services:APIAsignarAeronave"];            
+            var url = _configuration["Services:APIAsignarAeronave"]; 
+            //var url = "http://localhost:34272/api/AsignarAeronave";            
+            //var url = "https://aeronave.azurewebsites.net/api/AsignarAeronave";                       
             var request = (HttpWebRequest)WebRequest.Create(url);
             request.Accept = "application/json";
             request.ContentType = "application/json";
